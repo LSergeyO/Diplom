@@ -1,0 +1,659 @@
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # local_file.inventory will be created
+  + resource "local_file" "inventory" {
+      + content              = (known after apply)
+      + directory_permission = "0777"
+      + file_permission      = "0777"
+      + filename             = "../ansible/inventory"
+      + id                   = (known after apply)
+    }
+
+  # null_resource.db_1 will be created
+  + resource "null_resource" "db_1" {
+      + id = (known after apply)
+    }
+
+  # null_resource.git_and_runner will be created
+  + resource "null_resource" "git_and_runner" {
+      + id = (known after apply)
+    }
+
+  # null_resource.gitlab_1 will be created
+  + resource "null_resource" "gitlab_1" {
+      + id = (known after apply)
+    }
+
+  # null_resource.proxy_ssl_1 will be created
+  + resource "null_resource" "proxy_ssl_1" {
+      + id = (known after apply)
+    }
+
+  # null_resource.runner_1 will be created
+  + resource "null_resource" "runner_1" {
+      + id = (known after apply)
+    }
+
+  # null_resource.wait will be created
+  + resource "null_resource" "wait" {
+      + id = (known after apply)
+    }
+
+  # null_resource.wp will be created
+  + resource "null_resource" "wp" {
+      + id = (known after apply)
+    }
+
+  # yandex_compute_instance.app will be created
+  + resource "yandex_compute_instance" "app" {
+      + allow_stopping_for_update = true
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + hostname                  = "app"
+      + id                        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                ubuntu:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCz/X1JOnUYJVK3S1XYUY9TDqTo9VTX5nflRauF+a9u+xk+XD16K9kSamjcjbHGHc2K0jMXin7PZUKx+W7o9XtNreoXjU3xz7K8hxKibH84bBFtHOc6PqL+w10sX0tC5LsL82cwjThppMuVIKQ351HP2uXAhb16WAyWAtM7LRzXYOcKeRVP7LSd0IQbaDkCXr3A6cFfnGQCT5xbPbmsWoUjtbNdaS/OcNHcryxcxs8yV6AycLykcg21EAcCGAObR+ZEz5HWwMOM50lh/mgVQN6IrzK1ubU9+iPdT+5Du6mSd9UDiZh2+VCNzJPs4J2tUV0ekUP6jTZQDCv9Kl4Fg3rF root@terraform
+            EOT
+        }
+      + name                      = "app"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v1"
+      + service_account_id        = (known after apply)
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-b"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd8uoiksr520scs811jl"
+              + name        = "root-app"
+              + size        = 10
+              + snapshot_id = (known after apply)
+              + type        = "network-ssd"
+            }
+        }
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = "192.168.101.13"
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = (known after apply)
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = (known after apply)
+          + subnet_id          = (known after apply)
+        }
+
+      + placement_policy {
+          + host_affinity_rules = (known after apply)
+          + placement_group_id  = (known after apply)
+        }
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 2
+          + memory        = 2
+        }
+
+      + scheduling_policy {
+          + preemptible = (known after apply)
+        }
+    }
+
+  # yandex_compute_instance.db01 will be created
+  + resource "yandex_compute_instance" "db01" {
+      + allow_stopping_for_update = true
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + hostname                  = "db01"
+      + id                        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                ubuntu:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCz/X1JOnUYJVK3S1XYUY9TDqTo9VTX5nflRauF+a9u+xk+XD16K9kSamjcjbHGHc2K0jMXin7PZUKx+W7o9XtNreoXjU3xz7K8hxKibH84bBFtHOc6PqL+w10sX0tC5LsL82cwjThppMuVIKQ351HP2uXAhb16WAyWAtM7LRzXYOcKeRVP7LSd0IQbaDkCXr3A6cFfnGQCT5xbPbmsWoUjtbNdaS/OcNHcryxcxs8yV6AycLykcg21EAcCGAObR+ZEz5HWwMOM50lh/mgVQN6IrzK1ubU9+iPdT+5Du6mSd9UDiZh2+VCNzJPs4J2tUV0ekUP6jTZQDCv9Kl4Fg3rF root@terraform
+            EOT
+        }
+      + name                      = "db01"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v1"
+      + service_account_id        = (known after apply)
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-b"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd8uoiksr520scs811jl"
+              + name        = "root-db01"
+              + size        = 10
+              + snapshot_id = (known after apply)
+              + type        = "network-ssd"
+            }
+        }
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = "192.168.101.11"
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = (known after apply)
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = (known after apply)
+          + subnet_id          = (known after apply)
+        }
+
+      + placement_policy {
+          + host_affinity_rules = (known after apply)
+          + placement_group_id  = (known after apply)
+        }
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 2
+          + memory        = 2
+        }
+
+      + scheduling_policy {
+          + preemptible = (known after apply)
+        }
+    }
+
+  # yandex_compute_instance.db02 will be created
+  + resource "yandex_compute_instance" "db02" {
+      + allow_stopping_for_update = true
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + hostname                  = "db02"
+      + id                        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                ubuntu:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCz/X1JOnUYJVK3S1XYUY9TDqTo9VTX5nflRauF+a9u+xk+XD16K9kSamjcjbHGHc2K0jMXin7PZUKx+W7o9XtNreoXjU3xz7K8hxKibH84bBFtHOc6PqL+w10sX0tC5LsL82cwjThppMuVIKQ351HP2uXAhb16WAyWAtM7LRzXYOcKeRVP7LSd0IQbaDkCXr3A6cFfnGQCT5xbPbmsWoUjtbNdaS/OcNHcryxcxs8yV6AycLykcg21EAcCGAObR+ZEz5HWwMOM50lh/mgVQN6IrzK1ubU9+iPdT+5Du6mSd9UDiZh2+VCNzJPs4J2tUV0ekUP6jTZQDCv9Kl4Fg3rF root@terraform
+            EOT
+        }
+      + name                      = "db02"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v1"
+      + service_account_id        = (known after apply)
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-b"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd8uoiksr520scs811jl"
+              + name        = "root-db02"
+              + size        = 10
+              + snapshot_id = (known after apply)
+              + type        = "network-ssd"
+            }
+        }
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = "192.168.101.12"
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = (known after apply)
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = (known after apply)
+          + subnet_id          = (known after apply)
+        }
+
+      + placement_policy {
+          + host_affinity_rules = (known after apply)
+          + placement_group_id  = (known after apply)
+        }
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 2
+          + memory        = 2
+        }
+
+      + scheduling_policy {
+          + preemptible = (known after apply)
+        }
+    }
+
+  # yandex_compute_instance.gitlab will be created
+  + resource "yandex_compute_instance" "gitlab" {
+      + allow_stopping_for_update = true
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + hostname                  = "gitlab"
+      + id                        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                ubuntu:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCz/X1JOnUYJVK3S1XYUY9TDqTo9VTX5nflRauF+a9u+xk+XD16K9kSamjcjbHGHc2K0jMXin7PZUKx+W7o9XtNreoXjU3xz7K8hxKibH84bBFtHOc6PqL+w10sX0tC5LsL82cwjThppMuVIKQ351HP2uXAhb16WAyWAtM7LRzXYOcKeRVP7LSd0IQbaDkCXr3A6cFfnGQCT5xbPbmsWoUjtbNdaS/OcNHcryxcxs8yV6AycLykcg21EAcCGAObR+ZEz5HWwMOM50lh/mgVQN6IrzK1ubU9+iPdT+5Du6mSd9UDiZh2+VCNzJPs4J2tUV0ekUP6jTZQDCv9Kl4Fg3rF root@terraform
+            EOT
+        }
+      + name                      = "gitlab"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v1"
+      + service_account_id        = (known after apply)
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-b"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd8uoiksr520scs811jl"
+              + name        = "root-gitlab"
+              + size        = 20
+              + snapshot_id = (known after apply)
+              + type        = "network-ssd"
+            }
+        }
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = "192.168.101.14"
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = (known after apply)
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = (known after apply)
+          + subnet_id          = (known after apply)
+        }
+
+      + placement_policy {
+          + host_affinity_rules = (known after apply)
+          + placement_group_id  = (known after apply)
+        }
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 4
+          + memory        = 4
+        }
+
+      + scheduling_policy {
+          + preemptible = (known after apply)
+        }
+    }
+
+  # yandex_compute_instance.monitoring will be created
+  + resource "yandex_compute_instance" "monitoring" {
+      + allow_stopping_for_update = true
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + hostname                  = "monitoring"
+      + id                        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                ubuntu:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCz/X1JOnUYJVK3S1XYUY9TDqTo9VTX5nflRauF+a9u+xk+XD16K9kSamjcjbHGHc2K0jMXin7PZUKx+W7o9XtNreoXjU3xz7K8hxKibH84bBFtHOc6PqL+w10sX0tC5LsL82cwjThppMuVIKQ351HP2uXAhb16WAyWAtM7LRzXYOcKeRVP7LSd0IQbaDkCXr3A6cFfnGQCT5xbPbmsWoUjtbNdaS/OcNHcryxcxs8yV6AycLykcg21EAcCGAObR+ZEz5HWwMOM50lh/mgVQN6IrzK1ubU9+iPdT+5Du6mSd9UDiZh2+VCNzJPs4J2tUV0ekUP6jTZQDCv9Kl4Fg3rF root@terraform
+            EOT
+        }
+      + name                      = "monitoring"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v1"
+      + service_account_id        = (known after apply)
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-b"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd8uoiksr520scs811jl"
+              + name        = "root-monitoring"
+              + size        = 10
+              + snapshot_id = (known after apply)
+              + type        = "network-ssd"
+            }
+        }
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = "192.168.101.16"
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = (known after apply)
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = (known after apply)
+          + subnet_id          = (known after apply)
+        }
+
+      + placement_policy {
+          + host_affinity_rules = (known after apply)
+          + placement_group_id  = (known after apply)
+        }
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 2
+          + memory        = 2
+        }
+
+      + scheduling_policy {
+          + preemptible = (known after apply)
+        }
+    }
+
+  # yandex_compute_instance.proxy will be created
+  + resource "yandex_compute_instance" "proxy" {
+      + allow_stopping_for_update = true
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + hostname                  = "proxy"
+      + id                        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                ubuntu:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCz/X1JOnUYJVK3S1XYUY9TDqTo9VTX5nflRauF+a9u+xk+XD16K9kSamjcjbHGHc2K0jMXin7PZUKx+W7o9XtNreoXjU3xz7K8hxKibH84bBFtHOc6PqL+w10sX0tC5LsL82cwjThppMuVIKQ351HP2uXAhb16WAyWAtM7LRzXYOcKeRVP7LSd0IQbaDkCXr3A6cFfnGQCT5xbPbmsWoUjtbNdaS/OcNHcryxcxs8yV6AycLykcg21EAcCGAObR+ZEz5HWwMOM50lh/mgVQN6IrzK1ubU9+iPdT+5Du6mSd9UDiZh2+VCNzJPs4J2tUV0ekUP6jTZQDCv9Kl4Fg3rF root@terraform
+            EOT
+        }
+      + name                      = "proxy"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v1"
+      + service_account_id        = (known after apply)
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-a"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd83slullt763d3lo57m"
+              + name        = "root-proxy"
+              + size        = 10
+              + snapshot_id = (known after apply)
+              + type        = "network-ssd"
+            }
+        }
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = "192.168.100.10"
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = true
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = (known after apply)
+          + subnet_id          = (known after apply)
+        }
+
+      + placement_policy {
+          + host_affinity_rules = (known after apply)
+          + placement_group_id  = (known after apply)
+        }
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 2
+          + memory        = 2
+        }
+
+      + scheduling_policy {
+          + preemptible = (known after apply)
+        }
+    }
+
+  # yandex_compute_instance.runner will be created
+  + resource "yandex_compute_instance" "runner" {
+      + allow_stopping_for_update = true
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + hostname                  = "runner"
+      + id                        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                ubuntu:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCz/X1JOnUYJVK3S1XYUY9TDqTo9VTX5nflRauF+a9u+xk+XD16K9kSamjcjbHGHc2K0jMXin7PZUKx+W7o9XtNreoXjU3xz7K8hxKibH84bBFtHOc6PqL+w10sX0tC5LsL82cwjThppMuVIKQ351HP2uXAhb16WAyWAtM7LRzXYOcKeRVP7LSd0IQbaDkCXr3A6cFfnGQCT5xbPbmsWoUjtbNdaS/OcNHcryxcxs8yV6AycLykcg21EAcCGAObR+ZEz5HWwMOM50lh/mgVQN6IrzK1ubU9+iPdT+5Du6mSd9UDiZh2+VCNzJPs4J2tUV0ekUP6jTZQDCv9Kl4Fg3rF root@terraform
+            EOT
+        }
+      + name                      = "runner"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v1"
+      + service_account_id        = (known after apply)
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-b"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd8uoiksr520scs811jl"
+              + name        = "root-runner"
+              + size        = 10
+              + snapshot_id = (known after apply)
+              + type        = "network-ssd"
+            }
+        }
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = "192.168.101.15"
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = (known after apply)
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = (known after apply)
+          + subnet_id          = (known after apply)
+        }
+
+      + placement_policy {
+          + host_affinity_rules = (known after apply)
+          + placement_group_id  = (known after apply)
+        }
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 2
+          + memory        = 2
+        }
+
+      + scheduling_policy {
+          + preemptible = (known after apply)
+        }
+    }
+
+  # yandex_dns_recordset.rs1 will be created
+  + resource "yandex_dns_recordset" "rs1" {
+      + data    = (known after apply)
+      + id      = (known after apply)
+      + name    = "@"
+      + ttl     = 200
+      + type    = "A"
+      + zone_id = (known after apply)
+    }
+
+  # yandex_dns_recordset.rs2 will be created
+  + resource "yandex_dns_recordset" "rs2" {
+      + data    = (known after apply)
+      + id      = (known after apply)
+      + name    = "www"
+      + ttl     = 200
+      + type    = "A"
+      + zone_id = (known after apply)
+    }
+
+  # yandex_dns_recordset.rs3 will be created
+  + resource "yandex_dns_recordset" "rs3" {
+      + data    = (known after apply)
+      + id      = (known after apply)
+      + name    = "gitlab"
+      + ttl     = 200
+      + type    = "A"
+      + zone_id = (known after apply)
+    }
+
+  # yandex_dns_recordset.rs4 will be created
+  + resource "yandex_dns_recordset" "rs4" {
+      + data    = (known after apply)
+      + id      = (known after apply)
+      + name    = "grafana"
+      + ttl     = 200
+      + type    = "A"
+      + zone_id = (known after apply)
+    }
+
+  # yandex_dns_recordset.rs5 will be created
+  + resource "yandex_dns_recordset" "rs5" {
+      + data    = (known after apply)
+      + id      = (known after apply)
+      + name    = "prometheus"
+      + ttl     = 200
+      + type    = "A"
+      + zone_id = (known after apply)
+    }
+
+  # yandex_dns_recordset.rs6 will be created
+  + resource "yandex_dns_recordset" "rs6" {
+      + data    = (known after apply)
+      + id      = (known after apply)
+      + name    = "alertmanager"
+      + ttl     = 200
+      + type    = "A"
+      + zone_id = (known after apply)
+    }
+
+  # yandex_dns_zone.zone1 will be created
+  + resource "yandex_dns_zone" "zone1" {
+      + created_at       = (known after apply)
+      + folder_id        = (known after apply)
+      + id               = (known after apply)
+      + labels           = {
+          + "label1" = "public"
+        }
+      + name             = "my-public-zone"
+      + private_networks = (known after apply)
+      + public           = true
+      + zone             = "devops-lso.ru."
+    }
+
+  # yandex_vpc_network.default will be created
+  + resource "yandex_vpc_network" "default" {
+      + created_at                = (known after apply)
+      + default_security_group_id = (known after apply)
+      + folder_id                 = (known after apply)
+      + id                        = (known after apply)
+      + labels                    = (known after apply)
+      + name                      = "vpc"
+      + subnet_ids                = (known after apply)
+    }
+
+  # yandex_vpc_route_table.nat will be created
+  + resource "yandex_vpc_route_table" "nat" {
+      + created_at = (known after apply)
+      + folder_id  = (known after apply)
+      + id         = (known after apply)
+      + labels     = (known after apply)
+      + name       = "route"
+      + network_id = (known after apply)
+
+      + static_route {
+          + destination_prefix = "0.0.0.0/0"
+          + next_hop_address   = "192.168.100.10"
+        }
+    }
+
+  # yandex_vpc_subnet.lan-b will be created
+  + resource "yandex_vpc_subnet" "lan-b" {
+      + created_at     = (known after apply)
+      + folder_id      = (known after apply)
+      + id             = (known after apply)
+      + labels         = (known after apply)
+      + name           = "subnet-b"
+      + network_id     = (known after apply)
+      + route_table_id = (known after apply)
+      + v4_cidr_blocks = [
+          + "192.168.101.0/24",
+        ]
+      + v6_cidr_blocks = (known after apply)
+      + zone           = "ru-central1-b"
+    }
+
+  # yandex_vpc_subnet.public-a will be created
+  + resource "yandex_vpc_subnet" "public-a" {
+      + created_at     = (known after apply)
+      + folder_id      = (known after apply)
+      + id             = (known after apply)
+      + labels         = (known after apply)
+      + name           = "subnet-a"
+      + network_id     = (known after apply)
+      + v4_cidr_blocks = [
+          + "192.168.100.0/24",
+        ]
+      + v6_cidr_blocks = (known after apply)
+      + zone           = "ru-central1-a"
+    }
+
+Plan: 26 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + external_ip_address_monitoring = "192.168.101.16"
+  + internal_ip_address_app        = "192.168.101.13"
+  + internal_ip_address_db01       = "192.168.101.11"
+  + internal_ip_address_db02       = "192.168.101.12"
+  + internal_ip_address_gitlab     = "192.168.101.14"
+  + internal_ip_address_proxy      = (known after apply)
+  + internal_ip_address_runner     = "192.168.101.15"
